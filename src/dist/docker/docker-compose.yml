@@ -1,0 +1,25 @@
+mongo:
+    image: mongo:latest
+    ports:
+        - "27017:27017"
+
+tomcat:
+#    build: ./tomcat/
+    image: listresso-back
+    ports:
+        - "8009:8009"
+        - "8080:8080"
+    links:
+        - mongo
+#    volumes:
+#        - "/vagrant_webapp/target:/usr/local/tomcat/webapps"
+#        - "/vagrant_logs/tomcat:/usr/local/tomcat/logs"
+
+#grunt:
+#    build: ./grunt/
+#    ports:
+#        - "9000:9000"
+#    links:
+#        - tomcat
+#    volumes:
+#        - "../:/data"
