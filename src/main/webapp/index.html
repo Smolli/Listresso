@@ -2,18 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Listresso</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li>Mitglieder</li>
-        <li>Runden</li>
-    </ul>
-</nav>
+<div class="mdl-layout__container has-scrolling-header">
+    <div
+        class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-small-screen is-upgraded">
+        <div class="mdl-card">
+            <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Aktuelle Runde</h1>
+            </div>
+        </div>
 
-<div ng-view></div>
+        <br>
+
+        <div class="member mdl-card mdl-shadow--2dp">
+            <div class="name">Trinker 1</div>
+            <div class="beverage">Cappuchino <span class="currency">1,45</span></div>
+            <div class="balance"><span class="currency currency-negative">-1,20</span></div>
+            <div class="active">
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+                    <input type="checkbox" id="switch-1" class="mdl-switch__input" checked/>
+                    <span class="mdl-switch__label"></span>
+                </label>
+            </div>
+        </div>
+
+        <br>
+        
+        <div class="mdl-card">
+            <ul>
+                <li>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Speichern
+                    </button>
+                </li>
+                <li>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Übersicht
+                    </button>
+                </li>
+                <li>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Profile
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
