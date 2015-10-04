@@ -6,8 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.SimpleCommandLinePropertySource;
 
@@ -15,8 +14,7 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.Arrays;
 
-@ComponentScan
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
@@ -52,16 +50,16 @@ public class Application {
      * Main method, used to run the application.
      */
     public static void main(final String[] args) {
-        final SpringApplication app = new SpringApplication(Application.class);
-        app.setShowBanner(false);
+        final Application application=new Application();
 
-        final SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(args);
+        application.run(args);
+    }
 
-        // Check if the selected profile has been set as argument.
-        // if not the development profile will be added
-        Application.addDefaultProfile(app, source);
+    private void run(final String[] args) {
 
-        app.run(args);
+        Application.LOGGER.info("Starting...");
+
+        SpringApplication.run(Application.class, args);
     }
 
     /**
